@@ -9,11 +9,9 @@ public class Pedro_Movimiento : MonoBehaviour
 
     [SerializeField] private float velocidad = 3f;
     [SerializeField] private float sensibilidadMouse = 100f;
-    [SerializeField] private float velocidadRotacion = 100f;
-    [SerializeField] private float fuerzaSalto = 5f;
+    [SerializeField] private float velocidadRotacion = 100f;  // Velocidad de rotación
 
-    private bool IsGrounded = true;
-
+    public bool IsJumping = false;
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
@@ -22,14 +20,13 @@ public class Pedro_Movimiento : MonoBehaviour
 
     void Update()
     {
-        // Rotación con el mouse (si el botón derecho está presionado)
+
         if (Input.GetMouseButton(1))
         {
             float mouseX = Input.GetAxis("Mouse X") * sensibilidadMouse * Time.deltaTime;
             transform.Rotate(Vector3.up * mouseX);
         }
 
-        // Rotación con las teclas Q y E
         if (Input.GetKey(KeyCode.Q))
         {
             transform.Rotate(0, -velocidadRotacion * Time.deltaTime, 0);
@@ -39,15 +36,17 @@ public class Pedro_Movimiento : MonoBehaviour
             transform.Rotate(0, velocidadRotacion * Time.deltaTime, 0);
         }
 
-        // Salto
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded)
-        {
-            rigidbody.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse);
-            IsGrounded = false;
-            animator.SetBool("IsJumping", true);
-        }
 
-        // Movimiento del jugador
+        if (Input.GetKeyDown(KeyCode.Space) && !IsJumping)
+        {
+            rigidbody.AddForce(Vector3.up * 5, ForceMode.Impulse);
+            IsJumping = true;
+
+        }
+        animator.SetBool("IsJumping", IsJumping);
+
+
+
         float hor = Input.GetAxis("Horizontal");
         float ver = Input.GetAxis("Vertical");
         Vector3 velocity = Vector3.zero;
@@ -64,23 +63,15 @@ public class Pedro_Movimiento : MonoBehaviour
 
         velocity.y = rigidbody.velocity.y;
         rigidbody.velocity = velocity;
-        animator.SetBool("IsJumping", !IsGrounded);
+
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Suelo"))
         {
-            IsGrounded = true;
-            animator.SetBool("IsJumping", false);
+            IsJumping = false;
         }
     }
 
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Suelo"))
-        {
-            IsGrounded = false;
-        }
-    }
 }
