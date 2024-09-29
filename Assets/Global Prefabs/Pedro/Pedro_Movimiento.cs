@@ -9,7 +9,8 @@ public class Pedro_Movimiento : MonoBehaviour
 
     [SerializeField] private float velocidad = 3f;
     [SerializeField] private float sensibilidadMouse = 100f;
-    [SerializeField] private float velocidadRotacion = 100f;  // Velocidad de rotación
+    [SerializeField] private float velocidadRotacion = 100f;
+    [SerializeField] private int fuerzaSalto = 2;  // Velocidad de rotación
 
     public bool IsJumping = false;
     void Start()
@@ -39,7 +40,7 @@ public class Pedro_Movimiento : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && !IsJumping)
         {
-            rigidbody.AddForce(Vector3.up * 5, ForceMode.Impulse);
+            rigidbody.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse);
             IsJumping = true;
 
         }
@@ -72,6 +73,16 @@ public class Pedro_Movimiento : MonoBehaviour
         {
             IsJumping = false;
         }
+    }
+
+    public void matarPedro()
+    {
+        animator.SetBool("IsDeath", true);
+    }
+
+    public void revivirPedro()
+    {
+        animator.SetBool("IsDeath", false);
     }
 
 }
