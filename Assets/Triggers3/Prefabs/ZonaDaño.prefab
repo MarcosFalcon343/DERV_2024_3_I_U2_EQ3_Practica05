@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 1761753419375584433}
   - component: {fileID: 5246769451931543749}
   - component: {fileID: 3077437170760126859}
+  - component: {fileID: 2385594631670839105}
   m_Layer: 0
   m_Name: ZonaQuitarVida
   m_TagString: Untagged
@@ -207,6 +208,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9ecdde48b33c4b40a43b5b21dbcc9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handlerGame: {fileID: 0}
+--- !u!114 &2385594631670839105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233563359158656828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46513b1e471ed34b93100f19bc2d464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handlerGame: {fileID: 0}
+  nombreZona: Zona Peligrosa
 --- !u!1001 &92618194609772092
 PrefabInstance:
   m_ObjectHideFlags: 0

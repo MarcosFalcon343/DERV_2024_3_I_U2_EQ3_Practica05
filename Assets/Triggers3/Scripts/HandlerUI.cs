@@ -7,7 +7,8 @@ public class HandlerUI : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI zonaAparicion;
     [SerializeField] public TextMeshProUGUI vida;
-    [SerializeField] public TextMeshProUGUI zona;
+    [SerializeField] public TextMeshProUGUI zonaMapa;
+    [SerializeField] public TextMeshProUGUI muerto;
 
 
     public void cambiarVida(int vida)
@@ -17,11 +18,16 @@ public class HandlerUI : MonoBehaviour
 
     public void cambiarZona(string zona)
     {
-        this.zona.text = zona;
+        this.zonaMapa.text = zona;
     }
 
     public void cambiarZonaAparicion(string zona)
     {
         zonaAparicion.text = zona;
+    }
+
+    public void cambiarHazMuerto(string texto)
+    {
+        muerto.text = texto;
     }
 }

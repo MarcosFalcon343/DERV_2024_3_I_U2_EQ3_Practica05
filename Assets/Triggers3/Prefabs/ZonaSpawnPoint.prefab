@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreZona: 
+  handlerGame: {fileID: 0}
 --- !u!1 &3350321298246472501
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +133,7 @@ GameObject:
   - component: {fileID: 9150290012763607280}
   - component: {fileID: 6001022307134381709}
   - component: {fileID: 5762687455546028149}
+  - component: {fileID: 3031896121487500405}
   m_Layer: 0
   m_Name: ZonaCuracion
   m_TagString: Untagged
@@ -237,6 +239,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e011b4d9d9e4c439ce2134707c082a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handlerGame: {fileID: 0}
+--- !u!114 &3031896121487500405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3350321298246472501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46513b1e471ed34b93100f19bc2d464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handlerGame: {fileID: 0}
+  nombreZona: 
 --- !u!1 &7528279652543297432
 GameObject:
   m_ObjectHideFlags: 0
