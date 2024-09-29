@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Placa1
-  - Placa2
-  - Placa3
+  - Suelo
+  - Agua
+  - Pared
   layers:
   - Default
   - TransparentFX
